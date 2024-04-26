@@ -27,6 +27,7 @@ import jakarta.validation.Valid;
 @RequestMapping("/users") // http://localhost:8080/users
 public class UserController {
 	
+	@Autowired
 	Map<String, UserRest> users;
 	
 	@Autowired
@@ -67,8 +68,8 @@ public class UserController {
 		
 		UserRest returnValue = userService.createUser(userDetails);
 	    
-		if(users == null) users = new HashMap<>();
-		users.put(returnValue.getUserId(), returnValue);
+		//if(users == null) users = new HashMap<>();
+		//users.put(returnValue.getUserId(), returnValue);
 		
 		
 		return new ResponseEntity<UserRest>(returnValue,HttpStatus.OK);

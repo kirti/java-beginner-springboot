@@ -1,6 +1,7 @@
 package com.appssmartminds.app.ws.userservice.impl;
 
-//import java.util.Map;
+import java.util.HashMap;
+import java.util.Map;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,8 @@ import com.appssmartminds.app.ws.userservice.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 	
-	//Map<String, UserRest> users;
+	@Autowired
+	Map<String, UserRest> users;
 	
 	Utils utils;
 	
@@ -38,8 +40,8 @@ public class UserServiceImpl implements UserService {
 		String userId = utils.generateUserId();
 		returnValue.setUserId(userId);
 		
-		/*if(users == null) users = new HashMap<>();
-		users.put(userId, returnValue);*/
+		if(users == null) users = new HashMap<>();
+		users.put(userId, returnValue);
 		
 		return returnValue;
 	}
